@@ -14,12 +14,11 @@ spec:
       containers:
       - name: client
         image: registry.cn-shenzhen.aliyuncs.com/dyf_test/complex_client:v1
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "250m"
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
+      imagePullSecrets:
+        - name:  alicloud-registrykey
 ---
 apiVersion: v1
 kind: Service
